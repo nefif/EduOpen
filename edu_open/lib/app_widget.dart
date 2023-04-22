@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -7,5 +6,4 @@ class AppWidget extends StatelessWidget {
     // TODO: implement build
     throw UnimplementedError();
   }
-
 }
