@@ -1,4 +1,8 @@
+import 'package:edu_open/terms_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'data_input.dart';
 
 class SingUpPage extends StatefulWidget {
   @override
@@ -11,16 +15,18 @@ class _CadastroPageState extends State<SingUpPage> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   final _confirmarSenhaController = TextEditingController();
+  final _birthDateController = TextEditingController();
+  bool _agreedToTerms = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Cadastro'),
+          title: const Text('Cadastro'),
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Form(
               key: _formKey,
               child: Column(
@@ -28,7 +34,7 @@ class _CadastroPageState extends State<SingUpPage> {
                 children: [
                   TextFormField(
                     controller: _nomeController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Nome',
                       suffixText: '*',
                       suffixStyle: TextStyle(color: Colors.red),
@@ -40,11 +46,24 @@ class _CadastroPageState extends State<SingUpPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
+                  TextFormField(
+                    controller: _birthDateController,
+                    keyboardType: TextInputType.datetime,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10),
+                      DateInputFormatter()
+                    ],
+                    decoration: const InputDecoration(
+                      labelText: 'Data de Nascimento',
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'E-mail',
                     ),
                     validator: (value) {
@@ -57,11 +76,11 @@ class _CadastroPageState extends State<SingUpPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextFormField(
                     controller: _senhaController,
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Senha',
                     ),
                     validator: (value) {
@@ -83,11 +102,11 @@ class _CadastroPageState extends State<SingUpPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   TextFormField(
                     controller: _confirmarSenhaController,
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Confirmar Senha',
                     ),
                     validator: (value) {
@@ -100,14 +119,37 @@ class _CadastroPageState extends State<SingUpPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _agreedToTerms,
+                        onChanged: (value) {
+                          setState(() {
+                            _agreedToTerms = value!;
+                          });
+                        },
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AgreedTerms()),
+                          );
+                        },
+                        child: const Text('Eu li e concordo com os termos de uso.'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16.0),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Todo: Enviar os dados do formulário para o backend
                       }
                     },
-                    child: Text('Cadastrar'),
+                    child: const Text('Cadastrar'),
                   ),
                 ],
               ),
