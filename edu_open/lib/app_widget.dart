@@ -1,4 +1,4 @@
-import 'package:edu_open/home_page.dart';
+import 'package:edu_open/start_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -7,7 +7,7 @@ class AppWidget extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       title: 'EduOpen',
-      home: HomePage(),
+      home: StartPage(),
     );
   }
 }

@@ -1,6 +1,4 @@
-import 'package:edu_open/sing_up_page.dart';
 import 'package:flutter/material.dart';
-import 'login_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -8,33 +6,17 @@ class HomePage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('EduOpen'),
+        title: const Text('Home'),
+        actions: [],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-              child: Text('Login'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SingUpPage()),
-                );
-              },
-              child: Text('Ainda não tem conta? Cadastre-se.'),
-            )
-          ],
-        ),
-      ),
+      bottomNavigationBar:
+          BottomNavigationBar(items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.white),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favoritos')
+      ]),
     );
   }
 }
