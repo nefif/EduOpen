@@ -8,7 +8,7 @@ class StartPage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('EduOpen'),
+        title: const Text('EduOpen'),
       ),
       body: Center(
         child: Column(
