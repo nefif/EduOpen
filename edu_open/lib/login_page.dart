@@ -42,18 +42,18 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-                onPressed: () {Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                  );
                   print('E-mail: ${_emailController.text}');
                   print('Senha: ${_passworController.text}');
                 },
-                child: Text('Entrar'))
+                child: const Text('Entrar'))
           ],
         ),
-      )
-      ),
+      )),
     );
   }
 }
