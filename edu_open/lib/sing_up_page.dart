@@ -138,7 +138,8 @@ class _CadastroPageState extends State<SingUpPage> {
                                 builder: (context) => AgreedTerms()),
                           );
                         },
-                        child: const Text('Eu li e concordo com os termos de uso.'),
+                        child: const Text(
+                            'Eu li e concordo com os termos de uso.'),
                       ),
                     ],
                   ),
