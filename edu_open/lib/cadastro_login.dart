@@ -1,8 +1,6 @@
+import 'package:edu_open/login_page.dart';
 import 'package:edu_open/terms_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'data_input.dart';
 
 class SingUpPage extends StatefulWidget {
   @override
@@ -12,10 +10,9 @@ class SingUpPage extends StatefulWidget {
 class _CadastroPageState extends State<SingUpPage> {
   final _formKey = GlobalKey<FormState>();
   final _nomeController = TextEditingController();
-  final _emailController = TextEditingController();
+  final _nomeUsuarioController = TextEditingController();
   final _senhaController = TextEditingController();
   final _confirmarSenhaController = TextEditingController();
-  final _birthDateController = TextEditingController();
   bool _agreedToTerms = false;
 
   @override
@@ -35,43 +32,13 @@ class _CadastroPageState extends State<SingUpPage> {
                   TextFormField(
                     controller: _nomeController,
                     decoration: const InputDecoration(
-                      labelText: 'Nome',
+                      labelText: 'Nome do Usuário',
                       suffixText: '*',
                       suffixStyle: TextStyle(color: Colors.red),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Campo obrigatório';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextFormField(
-                    controller: _birthDateController,
-                    keyboardType: TextInputType.datetime,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                      LengthLimitingTextInputFormatter(10),
-                      DateInputFormatter()
-                    ],
-                    decoration: const InputDecoration(
-                      labelText: 'Data de Nascimento',
-                    ),
-                  ),
-                  const SizedBox(height: 16.0),
-                  TextFormField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      labelText: 'E-mail',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Campo obrigatório';
-                      }
-                      if (!value.contains('@') || !value.contains('.')) {
-                        return 'E-mail inválido';
                       }
                       return null;
                     },
@@ -148,6 +115,10 @@ class _CadastroPageState extends State<SingUpPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Todo: Enviar os dados do formulário para o backend
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
                       }
                     },
                     child: const Text('Cadastrar'),

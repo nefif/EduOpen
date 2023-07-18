@@ -29,16 +29,34 @@ class MenuDrawer extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'Teste',
+              'EduOpen',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
               ),
             ),
           ),
-          const ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Configurações'),
+          ListTile(
+            leading: const Icon(Icons.info),
+            title: const Text('Sobre'),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Informaçãoes sobre o app'),
+                      content: const Text(
+                          'Desenvolvido por Néfi Fernandes - 2023 (UFRPE - PGIA)'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Fechar'))
+                      ],
+                    );
+                  });
+            },
           ),
           _buildLogoutTile(context),
         ],

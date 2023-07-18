@@ -20,7 +20,10 @@ class ShowAlert {
                   ),
                 );
               },
-              child: const Text('SIM'),
+              child: const Text(
+                'SIM',
+                style: TextStyle(color: Colors.red),
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -35,4 +38,3 @@ class ShowAlert {
     );
   }
 }
-
