@@ -1,9 +1,6 @@
-// ignore_for_file: prefer_final_fields
-
 import 'package:edu_open/drawer.dart';
 import 'package:flutter/material.dart';
-
-import 'favoritos.dart';
+import 'cadastro_sugestao.dart';
 import 'home.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -14,9 +11,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomePage(), // Tela inicial "Home"
-    FavoritesPage(), // Tela "Favoritos"
+    CadastroBase(), // Tela "Favoritos"
   ];
 
   void _onItemTapped(int index) {
@@ -29,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Página Inicial'),
       ),
       drawer: MenuDrawer(),
       body: Center(
@@ -39,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: 'Favoritos'),
+              icon: Icon(Icons.add_comment), label: 'Sugestão de Cadastro')
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
