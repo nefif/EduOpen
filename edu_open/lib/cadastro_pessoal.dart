@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'cadastro_eduprof.dart';
 import 'data_input.dart';
 import 'package:http/http.dart' as http;
+import 'database_helper.dart';
 
 class SingUpPersonalPage extends StatefulWidget {
   @override
@@ -219,8 +220,23 @@ class _CadastroPessoalPageState extends State<SingUpPersonalPage> {
                   ),
                   const SizedBox(height: 16.0),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
+                        Map<String, dynamic> data = {
+                          'nome': _nomeController.text,
+                          'dataNascimento': _birthDateController.text,
+                          'cep': _cepController.text,
+                          'endereco': _enderecoController.text,
+                          'numero': _numeroController.text,
+                          'bairro': _bairroController.text,
+                          'cidade': _cidadeController.text,
+                          'uf': _ufController.text,
+                        };
+
+                        DatabaseHelper databaseHelper = DatabaseHelper();
+                        await databaseHelper.insertUsuario(data);
+
+                        // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,
                           MaterialPageRoute(
