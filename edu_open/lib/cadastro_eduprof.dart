@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cadastro_login.dart';
+import 'database_helper.dart';
 
 class SingUpProfessionalPage extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _CadastroProfissionalPageState extends State<SingUpProfessionalPage> {
   final _nomeEmpresaControler = TextEditingController();
   final _ocupacaoEmpresaControler = TextEditingController();
   final _urlEmpresaControler = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -243,22 +245,28 @@ class _CadastroProfissionalPageState extends State<SingUpProfessionalPage> {
                   ),
                   const SizedBox(height: 16.0),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        if (_titularidade == 'Selecione um item' ||
-                            _instituicaoSelecionada == 'Selecione um item') {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Selecione um item válido'),
-                            ),
-                          );
-                        } else {
-                          // Todo: Enviar os dados do formulário para o backend
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SingUpPage()));
-                        }
+                        Map<String, dynamic> data = {
+                          'email': _emailController.text,
+                          'proposito': _propositoSelecionado,
+                          'nomeUniversidade': _nomeUniversidadeController.text,
+                          'curso': _cursoController.text,
+                          'tipoInstituicao': _instituicaoSelecionada,
+                          'titularidade': _titularidade,
+                          'nomeEmpresa': _nomeEmpresaControler.text,
+                          'ocupacaoEmpresa': _ocupacaoEmpresaControler.text,
+                          'urlEmpresa': _urlEmpresaControler.text,
+                        };
+
+                        DatabaseHelper databaseHelper = DatabaseHelper();
+                        await databaseHelper.insertUsuario(data);
+
+                        // ignore: use_build_context_synchronously
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SingUpPage()),
+                        );
                       }
                     },
                     child: const Text('Próximo'),

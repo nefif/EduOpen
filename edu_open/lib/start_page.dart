@@ -1,5 +1,6 @@
 import 'package:edu_open/cadastro_pessoal.dart';
 import 'package:flutter/material.dart';
+import 'cadastro_login.dart';
 import 'login_page.dart';
 
 class StartPage extends StatelessWidget {
@@ -26,7 +27,7 @@ class StartPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SingUpPersonalPage()),
+                  MaterialPageRoute(builder: (context) => SingUpPage()),
                 );
               },
               child: const Text('Ainda não tem conta? Cadastre-se.'),

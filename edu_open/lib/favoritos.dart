@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'home.dart';
 
 class FavoritesPage extends StatefulWidget {
   final List<Item> favoriteItems;
 
-  const FavoritesPage({required this.favoriteItems});
+  const FavoritesPage({super.key, required this.favoriteItems});
 
   @override
   _FavoritesPageState createState() => _FavoritesPageState();
@@ -16,7 +17,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela de Favoritos'),
+        title: const Text('Tela de Favoritos'),
       ),
       body: ListView.builder(
         itemCount: widget.favoriteItems.length,
@@ -25,8 +26,15 @@ class _FavoritesPageState extends State<FavoritesPage> {
           return ListTile(
             title: Text(item.headerValue),
             subtitle: Text(item.expandedValue),
+            onTap: () async {
+              if (await launchUrl(item.link)) {
+                await launchUrl(item.link);
+              } else {
+                throw 'Não foi possível abrir o link: ${item.link}';
+              }
+            },
             trailing: IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () {
                 setState(() {
                   widget.favoriteItems.remove(item);

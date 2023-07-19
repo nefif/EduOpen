@@ -5,7 +5,7 @@
 
     <item>
         <bitmap
-            android:src="@mipmap/logo_edu_open"
+            android:src="@drawable/logo_edu_open"
             android:gravity="center" />
     </item>
 
