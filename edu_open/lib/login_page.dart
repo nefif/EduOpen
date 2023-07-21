@@ -49,13 +49,18 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                height: 200,
+                width: 200,
+                child: Image.asset('assets/images/logo.png'),
+              ),
               const SizedBox(height: 16.0),
               TextField(
                 controller: _usernameController,

@@ -108,6 +108,9 @@ class _CadastroPageState extends State<SingUpPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Text('Dados Pessoais: ',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 16.0),
                   TextFormField(
                     controller: _nomeController,
                     decoration: const InputDecoration(
@@ -253,7 +256,10 @@ class _CadastroPageState extends State<SingUpPage> {
                     },
                   ),
                   const SizedBox(height: 32.0),
-                  const Text('Motivo do Acesso:'),
+                  const Text(
+                    'Motivo do Acesso:',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Row(
                     children: [
                       Radio<String>(
@@ -439,6 +445,12 @@ class _CadastroPageState extends State<SingUpPage> {
                       )
                     ]),
                   ),
+                  const SizedBox(height: 36.0),
+                  const Text(
+                    'Dados de Acesso:',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height:16.0),
                   TextFormField(
                     controller: _nomeUsuarioController,
                     decoration: const InputDecoration(

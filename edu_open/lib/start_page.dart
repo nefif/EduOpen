@@ -1,4 +1,3 @@
-import 'package:edu_open/cadastro_pessoal.dart';
 import 'package:flutter/material.dart';
 import 'cadastro_login.dart';
 import 'login_page.dart';
@@ -14,6 +13,11 @@ class StartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              height: 200,
+              width: 200,
+              child: Image.asset('assets/images/logo.png'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
