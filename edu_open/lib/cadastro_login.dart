@@ -450,7 +450,7 @@ class _CadastroPageState extends State<SingUpPage> {
                     'Dados de Acesso:',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height:16.0),
+                  const SizedBox(height: 16.0),
                   TextFormField(
                     controller: _nomeUsuarioController,
                     decoration: const InputDecoration(
@@ -475,18 +475,6 @@ class _CadastroPageState extends State<SingUpPage> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Campo obrigatório';
-                      }
-                      if (value.length < 8) {
-                        return 'A senha deve ter pelo menos 8 caracteres';
-                      }
-                      if (!value.contains(RegExp(r'[A-Z]'))) {
-                        return 'A senha deve ter pelo menos uma letra maiúscula';
-                      }
-                      if (!value.contains(RegExp(r'[0-9]'))) {
-                        return 'A senha deve ter pelo menos um número';
-                      }
-                      if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-                        return 'A senha deve ter pelo menos um caractere especial';
                       }
                       return null;
                     },
