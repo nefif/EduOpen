@@ -1,4 +1,4 @@
-![image](https://github.com/nefif/EduOpen/assets/33643482/6cc466ff-4d06-403b-90d9-207b44f45004)# EduOpen - Centralizador de Bases de Dados Educacionais
+# EduOpen - Centralizador de Bases de Dados Educacionais
 
 ![Logo do EduOpen](https://github.com/nefif/EduOpen/blob/main/edu_open/rep/logo%20(2).png?raw=true)
 
