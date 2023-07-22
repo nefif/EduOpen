@@ -26,11 +26,9 @@ Este projeto é aberto a contribuições da comunidade. Se você tem alguma idei
 ## Informações sobre o Aplicativo
 
 1. Link para o app na Play Store em versão de Teste Inter. Caso não esteja na lista, pode entrar em contato: https://play.google.com/apps/internaltest/4701106317281674900
-
-2. Link para Apresentação do Aplicativo:
-
-3. Link para Apresentação da Funcionalidade do Aplicativo:
-
+2. Link para Apresentação do Aplicativo: https://drive.google.com/file/d/1cUbNwAMFG1aaN2KB9MY7jRkc-akSPTGM/view?usp=sharing
+3. Link para Apresentação da Funcionalidade do Aplicativo: https://drive.google.com/file/d/1lvXOiAawu0KRsbRDwUrXFd22xUC2OUMt/view?usp=sharing
+4. Link para download do APK: https://drive.google.com/file/d/1Uvu_48eWgF6SDWmNDwWEmt7J2tMTPOTl/view?usp=sharing
 
 ## Diagrama de Navegação de Telas
 ![Diagrama de Navegação](https://github.com/nefif/EduOpen/blob/main/edu_open/rep/Fluxo_Navegacao.drawio.png?raw=true)
