@@ -28,7 +28,7 @@ Este projeto é aberto a contribuições da comunidade. Se você tem alguma idei
 1. Link para o app na Play Store em versão de Teste Inter. Caso não esteja na lista, pode entrar em contato: https://play.google.com/apps/internaltest/4701106317281674900
 2. Link para Apresentação do Aplicativo: https://drive.google.com/file/d/1cUbNwAMFG1aaN2KB9MY7jRkc-akSPTGM/view?usp=sharing
 3. Link para Apresentação da Funcionalidade do Aplicativo: https://drive.google.com/file/d/1lvXOiAawu0KRsbRDwUrXFd22xUC2OUMt/view?usp=sharing
-4. Link para download do APK: https://drive.google.com/file/d/1Uvu_48eWgF6SDWmNDwWEmt7J2tMTPOTl/view?usp=sharing
+4. Link para download do APK: https://drive.google.com/file/d/1KXyTvkBOsc5RI19CcjEUJ7KIRqQpAig2/view?usp=sharing
 5. Link para o drive do projeto, contendo os vídeos e capturas das telas e os diagramas: 
 
 ## Diagrama de Navegação de Telas
